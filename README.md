@@ -6,7 +6,6 @@
 <br/>
 
 [![Build Status](https://img.shields.io/badge/cim-cross--im-brightgreen.svg)](https://github.com/crossoverJie/cim)
-[![QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-787381170-yellowgreen.svg)](https://jq.qq.com/?_wv=1027&k=5HPYvQk)
 [![](https://badge.juejin.im/entry/5c2c000e6fb9a049f5713e26/likes.svg?style=flat-square)](https://juejin.im/post/5c2bffdc51882509181395d7)
 
 📘[介绍](#介绍) |📽[视频演示](#视频演示) | 🏖[TODO LIST](#todo-list) | 🌈[系统架构](#系统架构) |💡[流程图](#流程图)|🌁[快速启动](#快速启动)|👨🏻‍✈️[内置命令](#客户端内置命令)|🎤[通信](#群聊私聊)|❓[QA](https://github.com/crossoverJie/cim/blob/master/doc/QA.md)|💌[联系作者](#联系作者)
@@ -40,22 +39,20 @@
 
 ## TODO LIST
 
-* [x] [群聊](#群聊)。
-* [x] [私聊](#私聊)。
-* [x] [内置命令](#客户端内置命令)。
+* [x] [群聊](#群聊)
+* [x] [私聊](#私聊)
+* [x] [内置命令](#客户端内置命令)
 * [x] [聊天记录查询](#聊天记录查询)。
-* [x] [一键开启价值 2 亿的 `AI` 模式](#ai-模式)。
-* [x] 使用 `Google Protocol Buffer` 高效编解码。
-* [x] 根据实际情况灵活的水平扩容、缩容。
-* [x] 路由(`cim-forward-route`)服务自身是无状态，可用 `Nginx` 代理支持高可用。
-* [x] 服务端自动剔除离线客户端。
-* [x] 客户端自动重连。
+* [x] [一键开启价值 2 亿的 `AI` 模式](#ai-模式)
+* [x] 使用 `Google Protocol Buffer` 高效编解码
+* [x] 根据实际情况灵活的水平扩容、缩容
+* [x] 服务端自动剔除离线客户端
+* [x] 客户端自动重连
 * [x] [延时消息](#延时消息)
-* [ ] 分组群聊。
-* [ ] SDK 开发包。
-* [ ] 离线消息。
-* [ ] 协议支持消息加密。
-* [ ] 更多的客户端路由策略。
+* [ ] 分组群聊
+* [ ] SDK 开发包
+* [ ] 离线消息
+* [ ] 协议支持消息加密
 
 
 
@@ -129,7 +126,7 @@ nohup java -jar  /root/work/route0/cim-forward-route-1.0.0-SNAPSHOT.jar --app.zk
 ```shell
 cp /cim/cim-client/target/cim-client-1.0.0-SNAPSHOT.jar /xx/work/route0/
 cd /xx/work/route0/
-java -jar cim-client-1.0.0-SNAPSHOT.jar --server.port=8084 --cim.user.id=唯一客户端ID --cim.user.userName=用户名 --cim.group.route.request.url=http://路由服务器:8083/groupRoute --cim.server.route.request.url=http://路由服务器:8083/login
+java -jar cim-client-1.0.0-SNAPSHOT.jar --server.port=8084 --cim.user.id=唯一客户端ID --cim.user.userName=用户名 --cim.route.url=http://路由服务器:8083/
 ```
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fylgxjgshfj31vo04m7p9.jpg)
@@ -167,7 +164,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 # 启动本地客户端
 cp /cim/cim-client/target/cim-client-1.0.0-SNAPSHOT.jar /xx/work/route0/
 cd /xx/work/route0/
-java -jar cim-client-1.0.0-SNAPSHOT.jar --server.port=8084 --cim.user.id=上方返回的userId --cim.user.userName=用户名 --cim.group.route.request.url=http://路由服务器:8083/groupRoute --cim.server.route.request.url=http://路由服务器:8083/login
+java -jar cim-client-1.0.0-SNAPSHOT.jar --server.port=8084 --cim.user.id=上方返回的userId --cim.user.userName=用户名 --cim.route.url=http://路由服务器:8083/
 ```
 
 ## 客户端内置命令
